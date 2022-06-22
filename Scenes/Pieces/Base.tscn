@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Pieces/Base.gd" type="Script" id=1]
+[ext_resource path="res://Resources/ChessPieces/chess_pieces.png" type="Texture" id=2]
+
+[node name="Pieza" type="Node2D"]
+script = ExtResource( 1 )
+casillasDisponibles = null
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -15 )
+texture = ExtResource( 2 )
+hframes = 16
