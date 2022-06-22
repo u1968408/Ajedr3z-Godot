@@ -5,7 +5,6 @@ extends Node2D
 # var a = 2
 # var b = "text"
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
-var Peons = []
 var posInicial = Vector2(8,4)
 var tablero = [
 	[0, 0, 0, 0, 2, 0, 0, 0],
@@ -39,7 +38,6 @@ func debugPeones():
 		y += posInicial.y
 		nouPeo.pos = Vector2(7,i)
 		$Pieces.add_child(nouPeo)
-		Peons.append(nouPeo)
 		tablero[7][i] = 2
 
 # Called when the node enters the scene tree for the first time.
