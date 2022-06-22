@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Pieces/Base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Pieces/Peo.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
 height = 10.0
 
 [node name="Peo" instance=ExtResource( 1 )]
-casillasDisponibles = [ Vector2( 0, 1 ) ]
+script = ExtResource( 2 )
+casillasDisponibles = [ Vector2( 0, 1 ), Vector2( 0, 2 ) ]
 blanca = 2
 
 [node name="Sprite" parent="." index="0"]

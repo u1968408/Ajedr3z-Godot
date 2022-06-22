@@ -28,5 +28,3 @@ func _ready():
 	Tablero = owner.tablero
 	#for mov in todosLosMovimientosPosibles():
 	#	print(mov.name, ": ",mov.movimientos)
-	print(hacerMovimiento(Piezas.find_node("Caballo"),Vector2(4,3)))
-	print(Piezas.find_node("Caballo").pos)
