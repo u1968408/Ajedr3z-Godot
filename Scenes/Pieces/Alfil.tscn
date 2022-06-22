@@ -4,15 +4,13 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
-height = 10.0
+height = 18.0
 
-[node name="Peo" instance=ExtResource( 1 )]
-casillasDisponibles = [ Vector2( 0, 1 ) ]
-blanca = 2
+[node name="Alfil" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
-frame = 8
+frame = 12
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -13 )
 shape = SubResource( 1 )

@@ -8,7 +8,7 @@ var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var Peons = []
 var posInicial = Vector2(8,4)
 var tablero = [
-	[0, 0, 0, 0, 0, 0, 0, 0],
+	[2, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
@@ -32,7 +32,7 @@ func _ready():
 		$Pieces.add_child(nouPeo)
 		Peons.append(nouPeo)
 		tablero[7][i] = 2
-		print(nouPeo.posiblesMovimientos(tablero))
+	print($Pieces/Torre.posiblesMovimientos(tablero))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

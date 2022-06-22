@@ -10,6 +10,9 @@ func _ready():
 	assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
 	
 
+func _physics_process(delta):
+	var space_state = get_world_2d().direct_space_state
+
 # Devuelve un array de los posibles movimientos que puede hacer la pieza
 func posiblesMovimientos(tablero):
 	var res = []
@@ -28,3 +31,11 @@ func hacerMovimiento(tablero, movimiento):
 	if comprobarMovimiento(tablero,movimiento):
 		tablero[pos.x][pos.y] = 0
 		tablero[movimiento.x][movimiento.y] = blanca
+
+
+func _on_Pieza_mouse_entered():
+	$Sprite.modulate.a = 0.5
+
+
+func _on_Pieza_mouse_exited():
+	$Sprite.modulate.a = 1
