@@ -17,15 +17,6 @@ var tablero = [
 	[0, 0, 0, 1, 0, 0, 0, 0],
 ]
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			var mouse_pos = get_global_mouse_position()
-			var tile = get_node('TileMap').world_to_map(mouse_pos)
-			tile.y += 8
-			$Pieces/PiecesIA/Peo.hacerMovimiento(tablero,tile)
-			
-
 # Crea una hilera de peones al final del tablero
 func debugPeones():
 	var x = posInicial.x

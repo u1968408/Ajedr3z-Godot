@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Levels/TileSet/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Pieces/Base.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Levels/Level01.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Levels/Deco/Nube.tscn" type="PackedScene" id=5]
@@ -46,7 +45,6 @@ pos = Vector2( 6, 0 )
 
 [node name="Player" parent="Pieces" instance=ExtResource( 4 )]
 position = Vector2( 32, 17 )
-script = ExtResource( 2 )
 pos = Vector2( 3, 7 )
 
 [node name="Deco" parent="." instance=ExtResource( 1 )]
