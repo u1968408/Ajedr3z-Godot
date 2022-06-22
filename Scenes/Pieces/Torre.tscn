@@ -7,7 +7,6 @@
 script = ExtResource( 2 )
 casillasDisponibles = [ Vector2( 0, 0 ) ]
 blanca = 2
-pos = Vector2( 0, 0 )
 
 [node name="Sprite" parent="." index="0"]
 frame = 9

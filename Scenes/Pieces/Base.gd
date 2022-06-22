@@ -8,12 +8,13 @@ func _ready():
 	assert( !casillasDisponibles.empty(), "ERROR: Las casillas disponibles no pueden estar vacias!")
 	assert( blanca == 1 or blanca == 2, "ERROR: O es blanca o es negra, decidete bro.")
 	assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
+	
 
 # Devuelve un array de los posibles movimientos que puede hacer la pieza
 func posiblesMovimientos(tablero):
 	var res = []
 	for casilla in casillasDisponibles:
-		var casillaResultante = Vector2(pos.x+casilla.x,pos.y+casilla.y)
+		var casillaResultante = Vector2(pos.x+casilla.y,pos.y+casilla.x)
 		if casillaResultante.x >= 0 and casillaResultante.x < tablero.size() and casillaResultante.y >= 0 and casillaResultante.y < tablero[casillaResultante.x].size() and tablero[casillaResultante.x][casillaResultante.y]==0:
 			res.append(casillaResultante)
 	return res
