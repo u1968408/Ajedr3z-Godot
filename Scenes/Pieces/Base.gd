@@ -17,7 +17,7 @@ func _physics_process(delta):
 func posiblesMovimientos(tablero):
 	var res = []
 	for casilla in casillasDisponibles:
-		var casillaResultante = Vector2(pos.x+casilla.y,pos.y+casilla.x)
+		var casillaResultante = Vector2(pos.x+casilla.x,pos.y+casilla.y)
 		if casillaResultante.x >= 0 and casillaResultante.x < tablero.size() and casillaResultante.y >= 0 and casillaResultante.y < tablero[casillaResultante.x].size() and tablero[casillaResultante.x][casillaResultante.y]==0:
 			res.append(casillaResultante)
 	return res
@@ -31,10 +31,12 @@ func hacerMovimiento(tablero, movimiento):
 	if comprobarMovimiento(tablero,movimiento):
 		tablero[pos.x][pos.y] = 0
 		tablero[movimiento.x][movimiento.y] = blanca
+		pos = movimiento
+		
 
 
 func _on_Pieza_mouse_entered():
-	$Sprite.modulate.a = 0.5
+	$Sprite.modulate.a = 0.6
 
 
 func _on_Pieza_mouse_exited():

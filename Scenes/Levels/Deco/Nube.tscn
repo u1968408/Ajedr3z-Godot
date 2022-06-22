@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/nube.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Levels/Deco/Nube.gd" type="Script" id=2]
+
+[node name="Sprite" type="Sprite"]
+modulate = Color( 0.960784, 0.960784, 0.960784, 0.909804 )
+position = Vector2( -9.53674e-07, 0 )
+scale = Vector2( 0.307407, 0.333333 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
