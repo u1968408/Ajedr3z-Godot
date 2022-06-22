@@ -1,11 +1,13 @@
 extends Node2D
 
 export var casillasDisponibles = [] # Vector2(1,1)...
-export var blanca = true
-export var pos = Vector2(0,0)
+export var blanca = -1
+export var pos = Vector2(-1,-1)
 
 func _ready():
-	pass # Replace with function body.
+	assert( !casillasDisponibles.empty(), "ERROR: Las casillas disponibles no pueden estar vacias!")
+	assert( blanca == 1 or blanca == 2, "ERROR: O es blanca o es negra, decidete bro.")
+	assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
 
 # Devuelve un array de los posibles movimientos que puede hacer la pieza
 func posiblesMovimientos(tablero):
