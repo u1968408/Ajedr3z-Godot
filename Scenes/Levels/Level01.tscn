@@ -35,13 +35,13 @@ tile_data = PoolIntArray( -983041, 49, 0, -917507, 50, 0, -917504, 51, 0, -72090
 
 [node name="PiecesIA" type="YSort" parent="Pieces"]
 
+[node name="Reina" parent="Pieces/PiecesIA" instance=ExtResource( 8 )]
+position = Vector2( 96, -8 )
+pos = Vector2( 4, 0 )
+
 [node name="Caballo" parent="Pieces/PiecesIA" instance=ExtResource( 7 )]
 position = Vector2( 64, -8 )
-pos = Vector2( 2, 3 )
-
-[node name="Reina" parent="Pieces/PiecesIA" instance=ExtResource( 8 )]
-position = Vector2( 64, -24 )
-pos = Vector2( 0, 0 )
+pos = Vector2( 2, 2 )
 
 [node name="Player" parent="Pieces" instance=ExtResource( 4 )]
 position = Vector2( 32, 17 )
