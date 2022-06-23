@@ -8,6 +8,10 @@ var Caballo = preload("res://Scenes/Pieces/Caballo.tscn")
 
 var posiblesEvoluciones = [Torre, Alfil, Caballo]
 
+func _ready():
+	if seHaMovido:
+		casillasDisponibles.pop_back()
+		
 func hacerMovimiento(tablero, movimiento):
 	.hacerMovimiento(tablero,movimiento)
 	if !seHaMovido:
@@ -34,9 +38,13 @@ func hacerMovimiento(tablero, movimiento):
 			get_parent().add_child(nuevaPieza)
 			queue_free()
 	else:
-		print(pos," ",tablero[pos.y+1][pos.x-1])
 		if pos.y >= 0 and pos.y < tablero.size():
-			if pos.x-1 >= 0 and pos.x-1 < tablero.size() and tablero[pos.x-1][pos.y+1]==1:
+			if pos.x-1 >= 0 and pos.x-1 < tablero.size() and tablero[pos.y+1][pos.x-1]==1:
+				casillasDisponibles.clear()
 				casillasDisponibles.append(Vector2(-1,1))
-			elif pos.x+1 >= 0 and pos.x+1 < tablero.size() and tablero[pos.x+1][pos.y+1]==1:
+			elif pos.x+1 >= 0 and pos.x+1 < tablero.size() and tablero[pos.y+1][pos.x+1]==1:
+				casillasDisponibles.clear()
 				casillasDisponibles.append(Vector2(1,1))
+			else:
+				casillasDisponibles.clear()
+				casillasDisponibles.append(Vector2(0,1))

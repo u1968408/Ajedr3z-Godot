@@ -1,6 +1,6 @@
 extends Node2D
 
-export var casillasDisponibles = [] # Vector2(1,1)...
+export var casillasDisponibles:Array = [] # Vector2(1,1)...
 export var blanca = -1
 export var pos = Vector2(-1,-1)
 
@@ -96,6 +96,7 @@ func _on_Pieza_mouse_exited():
 
 func _on_Pieza_body_entered(body):
 	if body is Fletxa and blanca == 2:
+		body.emit_signal("destroyed")
 		body.queue_free()
 		emit_signal("pieceDestroyed", self)
 		queue_free()
