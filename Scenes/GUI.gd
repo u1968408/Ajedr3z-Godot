@@ -8,6 +8,7 @@ onready var PERD = $PERDUT
 func _ready():
 	CPU.visible = false
 	JUG.visible = false
+	print(get_tree().current_scene.name)
 
 func actualitzarTorns(nTorns):
 	$GUI_General/Torns.text = str(nTorns)
@@ -39,4 +40,6 @@ func _on_MainMenu_pressed():
 
 
 func _on_Seguent_pressed():
-	get_tree().change_scene("res://Scenes/Levels/Level02.tscn")
+	var nom = get_tree().current_scene.name
+	nom[nom.length()-1] = str(int(nom[nom.length()-1])+1)
+	get_tree().change_scene("res://Scenes/Levels/"+nom+".tscn")
