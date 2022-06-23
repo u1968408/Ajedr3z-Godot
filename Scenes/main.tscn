@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/ChessPieces/chess_pieces.png" type="Texture" id=1]
 [ext_resource path="res://Resources/ChessPieces/chess_pieces-export.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Levels/TileSet/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/mainTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/main.gd" type="Script" id=5]
 
 [node name="main" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -114.0
@@ -42,14 +44,7 @@ scale = Vector2( 1, 1 )
 tile_data = PoolIntArray( -1638399, 2, 0 )
 
 [node name="ChessPieces" type="Sprite" parent="Deco"]
-position = Vector2( -8, 8 )
-texture = ExtResource( 1 )
-offset = Vector2( 0.5, 0 )
-hframes = 16
-frame = 7
-
-[node name="ChessPieces2" type="Sprite" parent="Deco"]
-position = Vector2( -9, 7 )
+position = Vector2( -8, 7 )
 texture = ExtResource( 1 )
 offset = Vector2( 0.5, 0 )
 hframes = 16
@@ -103,3 +98,6 @@ margin_right = 214.0
 margin_bottom = 85.0
 theme = ExtResource( 4 )
 text = "X"
+
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
