@@ -16,7 +16,7 @@ margin_top = -232.0
 margin_right = 440.0
 margin_bottom = 208.0
 mouse_filter = 2
-color = Color( 0.513726, 1, 1, 1 )
+color = Color( 0.74902, 0.941176, 1, 1 )
 
 [node name="Water" parent="." instance=ExtResource( 7 )]
 scale = Vector2( 1, 1 )
@@ -35,7 +35,7 @@ tile_data = PoolIntArray( -1179646, 45, 0, -1114108, 42, 0, -393199, 42, 0, -131
 [node name="PiecesIA" type="YSort" parent="Pieces"]
 
 [node name="Player" parent="Pieces" instance=ExtResource( 5 )]
-position = Vector2( -61, -21 )
+position = Vector2( -10, -22 )
 pos = Vector2( 3, 7 )
 
 [node name="Deco" parent="." instance=ExtResource( 7 )]
@@ -47,7 +47,7 @@ current = true
 zoom = Vector2( 0.32, 0.32 )
 
 [node name="Sprite" parent="." instance=ExtResource( 9 )]
-position = Vector2( -105, -68 )
+position = Vector2( -99, 60 )
 
 [node name="IA" parent="." instance=ExtResource( 8 )]
 

@@ -94,3 +94,57 @@ theme = ExtResource( 3 )
 text = "Torn JUG"
 align = 1
 valign = 1
+
+[node name="GUANYAT" type="Node2D" parent="."]
+visible = false
+
+[node name="Guanyat" type="Label" parent="GUANYAT"]
+margin_left = 8.0
+margin_top = -40.0
+margin_right = 121.0
+margin_bottom = -26.0
+theme = ExtResource( 3 )
+text = "HAS GANAO!!!!!!!!! XDDDD!!!!!!"
+align = 1
+valign = 1
+
+[node name="MainMenu" type="Button" parent="GUANYAT"]
+margin_left = 8.0
+margin_top = -8.0
+margin_right = 116.0
+margin_bottom = 12.0
+rect_scale = Vector2( 0.407503, 0.407503 )
+text = "Tornar al menú"
+
+[node name="Seguent" type="Button" parent="GUANYAT"]
+margin_left = 80.0
+margin_top = -8.0
+margin_right = 182.0
+margin_bottom = 12.0
+rect_scale = Vector2( 0.407503, 0.407503 )
+text = "Següent nivell"
+
+[node name="PERDUT" type="Node2D" parent="."]
+visible = false
+
+[node name="Guanyat" type="Label" parent="PERDUT"]
+margin_left = 8.0
+margin_top = -40.0
+margin_right = 121.0
+margin_bottom = -26.0
+theme = ExtResource( 3 )
+text = "HAS PERDIUUU!!!!!!!!"
+align = 1
+valign = 1
+
+[node name="MainMenu" type="Button" parent="PERDUT"]
+margin_left = 40.0
+margin_top = -8.0
+margin_right = 158.0
+margin_bottom = 12.0
+rect_scale = Vector2( 0.407503, 0.407503 )
+text = "Tornar al menú"
+
+[connection signal="pressed" from="GUANYAT/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="GUANYAT/Seguent" to="." method="_on_Seguent_pressed"]
+[connection signal="pressed" from="PERDUT/MainMenu" to="." method="_on_MainMenu_pressed"]

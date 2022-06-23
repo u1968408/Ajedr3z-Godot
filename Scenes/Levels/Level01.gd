@@ -38,10 +38,9 @@ func quitarPieza(pieza):
 	tablero[pieza.pos.y][pieza.pos.x] = 0
 	pieza.queue_free()
 	nEnemics -= 1
-	print("Ha muerto: ",pieza)
 	GUI.actualitzarEnemics(nEnemics)
 	if nEnemics==0:
-		print("HAS GANAU")
+		GUI.guanyat()
 		guanyat = true
 
 func turnoIA():
@@ -49,7 +48,7 @@ func turnoIA():
 		GUI.tornCPU()
 		tornJugador = false
 		if $IA.hacerTurno():
-			print("GAME_OVER")
+			GUI.perdut()
 			$Pieces/Player.queue_free()
 
 func _ready():
