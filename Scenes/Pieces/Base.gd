@@ -69,9 +69,10 @@ func calculaPixels(vectorMov):
 # Movimiento es la casilla a la que nos queremos mover
 func hacerMovimiento(tablero, movimiento):
 	if comprobarMovimiento(tablero,movimiento):
+		
 		tablero[pos.y][pos.x] = 0
 		tablero[movimiento.y][movimiento.x] = blanca
-		owner.tablero = tablero
+		#owner.tablero = tablero
 		
 		#Actually mover la pieza
 		var vectorMov = Vector2((movimiento.x-pos.x),(movimiento.y-pos.y))

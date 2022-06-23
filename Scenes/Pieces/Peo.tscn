@@ -19,5 +19,3 @@ frame = 8
 visible = false
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
-
-[connection signal="body_entered" from="." to="." method="_on_Peo_body_entered"]

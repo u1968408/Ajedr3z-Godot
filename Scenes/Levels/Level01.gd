@@ -1,6 +1,7 @@
 extends Node2D
 
 var tornJugador = false #false: blancas, true: negras
+var guanyat = false
 var nTorns = 0
 var nEnemics = 0
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
@@ -36,16 +37,20 @@ func debugPeones():
 func quitarPieza(pieza):
 	tablero[pieza.pos.y][pieza.pos.x] = 0
 	pieza.queue_free()
-	$IA.Piezas = get_node("../Pieces/PiecesIA")
-	nEnemics = PiecesIA.get_child_count()
+	nEnemics -= 1
+	print("Ha muerto: ",pieza)
 	GUI.actualitzarEnemics(nEnemics)
+	if nEnemics==0:
+		print("HAS GANAU")
+		guanyat = true
 
 func turnoIA():
-	GUI.tornCPU()
-	tornJugador = false
-	if $IA.hacerTurno():
-		print("GAME_OVER")
-		$Pieces/Player.queue_free()
+	if !guanyat:
+		GUI.tornCPU()
+		tornJugador = false
+		if $IA.hacerTurno():
+			print("GAME_OVER")
+			$Pieces/Player.queue_free()
 
 func _ready():
 	for pieza in $Pieces/PiecesIA.get_children():
@@ -56,11 +61,11 @@ func _ready():
 
 func _process(delta):
 	# Si el jugador le da al espacio y quiere pasar turno sin disparar
-	if Input.is_action_just_pressed("pasaTurno") and tornJugador:		
-		turnoIA()
-		nTorns+=1
+	if !guanyat and Input.is_action_just_pressed("pasaTurno") and tornJugador:
+		_on_Player_tornAcabat()
+		
 
-# Al disparar
+# Acaba el turno del jugador
 func _on_Player_tornAcabat():
 	nTorns+=1
 	GUI.actualitzarTorns(nTorns)

@@ -52,7 +52,3 @@ func hacerMovimiento(tablero, movimiento):
 			else:
 				casillasDisponibles.clear()
 				casillasDisponibles.append(Vector2(0,1))
-
-
-func _on_Peo_body_entered(body):
-	._on_Pieza_body_entered(body)

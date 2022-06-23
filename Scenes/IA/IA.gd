@@ -47,17 +47,22 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	var piezaIndex = random.randi_range(0,movs.size()-1)
-	var pieza = movs[piezaIndex]
-	var rand_index = random.randi() % pieza.movimientos[0].size()
-	Piezas = get_parent().find_node("PiecesIA")
-	print(Piezas.get_children())
-	Piezas.get_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
-	movs.remove(piezaIndex)
-	nMovidas += 1
-	if nMovidas == nPiezas:
+	if movs.size() != 0:
+		var piezaIndex = random.randi_range(0,movs.size()-1)
+		var pieza = movs[piezaIndex]
+		var rand_index = random.randi() % pieza.movimientos[0].size()
+		Piezas = get_parent().find_node("PiecesIA")
+		print(Piezas.get_children())
+		Piezas.get_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
+		movs.remove(piezaIndex)
+		nMovidas += 1
+		if nMovidas == nPiezas:
+			emit_signal("tornAcabat")
+			$Timer.stop()
+			nMovidas = 0
+		else:
+			$Timer.start()
+	else:
 		emit_signal("tornAcabat")
 		$Timer.stop()
 		nMovidas = 0
-	else:
-		$Timer.start()
