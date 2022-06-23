@@ -20,7 +20,9 @@ func hacerMovimiento(tablero, movimiento):
 	if !seHaMovido:
 		casillasDisponibles.pop_back()
 		seHaMovido = true
-	if pos.y == 7:
+	print(tablero)
+	print("Tamaño del tablero: ",tablero.size()-1, "Posicion: ",pos.y)
+	if pos.y == tablero.size()-1:
 		if get_parent().find_node("Reina") == null:
 			var reinaNueva = Reina.instance()
 			reinaNueva.tablero = owner.tablero
