@@ -9,6 +9,7 @@ height = 18.0
 
 [node name="Alfil" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+blanca = 2
 
 [node name="Sprite" parent="." index="0"]
 frame = 12

@@ -7,7 +7,8 @@ export var pos = Vector2(-1,-1)
 signal pieceDestroyed
 
 func _ready():
-	assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
+	pass
+	#assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
 
 func _physics_process(delta):
 	var space_state = get_world_2d().direct_space_state
