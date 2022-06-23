@@ -8,5 +8,5 @@ func _ready():
 
 
 func _process(delta):
-	_smoothed_mouse_pos = lerp(_smoothed_mouse_pos, get_global_mouse_position(), 0.3)
-	look_at(get_global_mouse_position())
+	_smoothed_mouse_pos = lerp(_smoothed_mouse_pos, get_global_mouse_position(), 0.8)
+	look_at(_smoothed_mouse_pos)
