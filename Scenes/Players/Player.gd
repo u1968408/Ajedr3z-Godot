@@ -1,5 +1,7 @@
 extends "res://Scenes/Pieces/Base.gd"
 
+var fletxaPath = preload("res://Scenes/Players/Weapons/Fletxa.tscn")
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_RIGHT and event.pressed:
@@ -7,3 +9,14 @@ func _unhandled_input(event):
 			var tile = owner.get_node('TileMap').world_to_map(mouse_pos)
 			tile.y += 8
 			hacerMovimiento(owner.tablero,tile)
+		elif event.button_index == BUTTON_LEFT and event.pressed:
+			disparar()
+
+func disparar():
+	var fletxa = fletxaPath.instance()
+	fletxa.global_position = $Bow/bow_sprite.global_position
+	fletxa.look_at(get_global_mouse_position())
+	get_parent().add_child(fletxa)
+
+	
+	fletxa.velocity = get_global_mouse_position() - fletxa.position

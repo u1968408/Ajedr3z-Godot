@@ -7,7 +7,7 @@ extends Node2D
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
 var tablero = [
-	[0, 0, 0, 0, 2, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 2, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 2, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
