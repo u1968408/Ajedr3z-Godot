@@ -81,7 +81,7 @@ func hacerMovimiento(tablero, movimiento):
 		position.y += vectorResultante.y
 		
 	else:
-		print("no se puede hacer este movimiento")
+		print("no se puede hacer este movimiento: ",movimiento)
 
 
 func _on_Pieza_mouse_entered():

@@ -1,6 +1,6 @@
 extends "res://Scenes/Pieces/Base.gd"
 
-var seHaMovido = false
+export var seHaMovido = false
 var Reina = preload("res://Scenes/Pieces/Reina.tscn")
 var Torre = preload("res://Scenes/Pieces/Torre.tscn")
 var Alfil = preload("res://Scenes/Pieces/Alfil.tscn")

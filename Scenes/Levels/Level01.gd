@@ -2,9 +2,6 @@ extends Node2D
 
 var tornJugador = false #false: blancas, true: negras
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
 var tablero = [
@@ -12,7 +9,7 @@ var tablero = [
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 2, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 2, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 1, 0, 0, 0, 0],
@@ -37,8 +34,18 @@ func _ready():
 	$IA.hacerTurno()
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Si el jugador le da al espacio y quiere pasar turno sin disparar
 	if Input.is_action_just_pressed("pasaTurno") and tornJugador:
 		tornJugador = false
 		$IA.hacerTurno()
+
+# Al disparar
+func _on_Player_tornAcabat():
+	tornJugador = false
+	$IA.hacerTurno()
+
+
+func _on_IA_tornAcabat():
+	tornJugador = true
+	$Pieces/Player.potJugar()

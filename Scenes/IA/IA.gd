@@ -5,7 +5,10 @@ var Player
 var Tablero
 
 var random = RandomNumberGenerator.new()
+var nPiezas
+var nMovidas = 0
 
+signal tornAcabat
 
 # Array con todos los movimientos que pueda hacer la IA
 func todosLosMovimientosPosibles():
@@ -32,28 +35,26 @@ func hacerTurno():
 				return true
 	
 	random.randomize()
-	var nPiezas = random.randi_range(1,3)
-	print(nPiezas)
-	# Moveremos nPiezas, entre 1 y 3
-	for i in range(nPiezas):
-		var t = Timer.new()
-		t.set_wait_time(1)
-		t.set_one_shot(true)
-		self.add_child(t)
-		t.start()
-		yield(t, "timeout")
-		var piezaIndex = random.randi_range(0,movs.size()-1)
-		var pieza = movs[piezaIndex]
-		var rand_index = random.randi() % pieza.movimientos[0].size()
-		Piezas.find_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
-		movs.remove(piezaIndex)
-	return false
+	nPiezas = random.randi_range(1,3)
+	$Timer.start()
 
 func _ready():
 	random.randomize()
-
 	Piezas = get_node("../Pieces/PiecesIA")
 	Player = get_node("../Pieces/Player")
 	Tablero = owner.tablero
-	#for mov in todosLosMovimientosPosibles():
-	#	print(mov.name, ": ",mov.movimientos)
+
+
+func _on_Timer_timeout():
+	var movs = todosLosMovimientosPosibles()	
+	var piezaIndex = random.randi_range(0,movs.size()-1)
+	var pieza = movs[piezaIndex]
+	print(pieza.name,": ",pieza.movimientos[0])
+	var rand_index = random.randi() % pieza.movimientos[0].size()
+	Piezas.find_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
+	movs.remove(piezaIndex)
+	nMovidas += 1
+	if nMovidas == nPiezas:
+		emit_signal("tornAcabat")
+	else:
+		$Timer.start()

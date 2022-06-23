@@ -46,7 +46,8 @@ pos = Vector2( 6, 0 )
 
 [node name="Peo2" parent="Pieces/PiecesIA" instance=ExtResource( 9 )]
 position = Vector2( 64, 8 )
-pos = Vector2( 6, 0 )
+pos = Vector2( 4, 4 )
+seHaMovido = true
 
 [node name="Alfil" parent="Pieces/PiecesIA" instance=ExtResource( 2 )]
 position = Vector2( 80, -16 )
@@ -69,3 +70,6 @@ zoom = Vector2( 0.32, 0.32 )
 position = Vector2( -105, -68 )
 
 [node name="IA" parent="." instance=ExtResource( 6 )]
+
+[connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
+[connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]

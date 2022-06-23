@@ -5,6 +5,9 @@ var tornJugador = false
 
 signal tornAcabat
 
+func potJugar():
+	tornJugador = true
+
 func _unhandled_input(event):
 	if tornJugador:
 		if event is InputEventMouseButton:
@@ -22,4 +25,5 @@ func disparar():
 	fletxa.look_at(get_global_mouse_position())
 	get_parent().add_child(fletxa)
 	fletxa.velocity = get_global_mouse_position() - fletxa.position
+	tornJugador = false
 	emit_signal("tornAcabat")
