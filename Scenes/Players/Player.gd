@@ -1,6 +1,7 @@
 extends "res://Scenes/Pieces/Base.gd"
 class_name Player
 
+onready var soTir = $Disparo
 var fletxaPath = preload("res://Scenes/Players/Weapons/Fletxa.tscn")
 var tornJugador = false
 var movido = false
@@ -33,6 +34,7 @@ func acabarTorn():
 	emit_signal("tornAcabat")
 
 func disparar():
+	soTir.play()
 	var fletxa = fletxaPath.instance()
 	fletxa.global_position = $Bow/inicio.global_position
 	fletxa.look_at(get_global_mouse_position())
