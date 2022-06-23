@@ -35,14 +35,14 @@ tile_data = PoolIntArray( -1179646, 45, 0, -1114108, 42, 0, -393199, 42, 0, -131
 [node name="PiecesIA" type="YSort" parent="Pieces"]
 
 [node name="Player" parent="Pieces" instance=ExtResource( 5 )]
-position = Vector2( -10, -22 )
-pos = Vector2( 3, 7 )
+position = Vector2( 7, 5 )
+pos = Vector2( 0, 0 )
 
 [node name="Deco" parent="." instance=ExtResource( 7 )]
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 65, 0 )
+position = Vector2( 87, 5 )
 current = true
 zoom = Vector2( 0.32, 0.32 )
 
