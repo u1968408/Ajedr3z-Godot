@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/unreal_dm_-_Keep_on_Fighting.mp3-639f7f1b2574ad9cd8b257dfb9615ead.mp3str"
+
+[deps]
+
+source_file="res://Resources/Music/unreal_dm_-_Keep_on_Fighting.mp3"
+dest_files=[ "res://.import/unreal_dm_-_Keep_on_Fighting.mp3-639f7f1b2574ad9cd8b257dfb9615ead.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

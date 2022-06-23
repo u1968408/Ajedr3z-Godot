@@ -68,5 +68,7 @@ position = Vector2( -105, -68 )
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]
 
+[node name="OstLvl01" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
 [connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]
