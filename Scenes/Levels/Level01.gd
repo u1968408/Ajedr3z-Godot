@@ -10,7 +10,7 @@ var posInicial = Vector2(8,4)
 onready var GUI = $GUI
 onready var PiecesIA = $Pieces/PiecesIA
 var tablero = [
-	[0, 0, 0, 0, 2, 0, 2, 0],
+	[2, 0, 0, 0, 2, 0, 2, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
