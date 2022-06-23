@@ -12,6 +12,7 @@ func hacerMovimiento(tablero, movimiento):
 	if casillasDisponibles[0]!=Vector2(0,1):
 		if tablero[movimiento.y][movimiento.x]!=1:
 			casillasDisponibles[0]=Vector2(0,1)
+			movimiento=pos+Vector2(0,1)
 	.hacerMovimiento(tablero,movimiento)
 	if !seHaMovido:
 		casillasDisponibles.pop_back()
@@ -23,6 +24,7 @@ func hacerMovimiento(tablero, movimiento):
 			reinaNueva.pos = pos
 			reinaNueva.position = position
 			reinaNueva.name = "Reina"
+			reinaNueva.owner = self.owner
 			get_parent().add_child(reinaNueva)
 			queue_free()
 		else:
@@ -34,6 +36,7 @@ func hacerMovimiento(tablero, movimiento):
 				nuevaPieza.tablero = owner.tablero
 			nuevaPieza.pos = pos
 			nuevaPieza.position = position
+			nuevaPieza.owner = self.owner
 			get_parent().add_child(nuevaPieza)
 			queue_free()
 	else:

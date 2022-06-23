@@ -13,7 +13,7 @@ signal tornAcabat
 # Array con todos los movimientos que pueda hacer la IA
 func todosLosMovimientosPosibles():
 	var res = []
-	for pieza in Piezas.get_children():
+	for pieza in get_parent().find_node("PiecesIA").get_children():
 		var piezaMovimientos = {
 			'name': pieza.name,
 			'movimientos': []
@@ -30,17 +30,19 @@ func hacerTurno():
 		var arrayMovs = pieza.movimientos[0]
 		for mov in arrayMovs:
 			if Tablero[mov.y][mov.x]==1:
-				Piezas.find_node(pieza.name).hacerMovimiento(Tablero,mov)
+				Piezas.get_node(pieza.name).hacerMovimiento(Tablero,mov)
 				print("He ganado con la pieza ",pieza.name," y el mov ",mov)
 				return true
 	
-	nPiezas = random.randi_range(1,2)
+	nPiezas = random.randi_range(1,movs.size())
+	if nPiezas > 3:
+		nPiezas = 3
 	$Timer.start()
 	return false
 
 func _ready():
 	random.randomize()
-	Piezas = get_node("../Pieces/PiecesIA")
+	Piezas = get_parent().find_node("PiecesIA")
 	Tablero = owner.tablero
 
 
@@ -48,8 +50,9 @@ func _on_Timer_timeout():
 	var piezaIndex = random.randi_range(0,movs.size()-1)
 	var pieza = movs[piezaIndex]
 	var rand_index = random.randi() % pieza.movimientos[0].size()
+	Piezas = get_parent().find_node("PiecesIA")
 	print(Piezas.get_children())
-	Piezas.find_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
+	Piezas.get_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
 	movs.remove(piezaIndex)
 	nMovidas += 1
 	if nMovidas == nPiezas:

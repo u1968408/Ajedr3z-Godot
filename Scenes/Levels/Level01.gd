@@ -41,6 +41,7 @@ func quitarPieza(pieza):
 	GUI.actualitzarEnemics(nEnemics)
 
 func turnoIA():
+	GUI.tornCPU()
 	tornJugador = false
 	if $IA.hacerTurno():
 		print("GAME_OVER")
@@ -55,7 +56,7 @@ func _ready():
 
 func _process(delta):
 	# Si el jugador le da al espacio y quiere pasar turno sin disparar
-	if Input.is_action_just_pressed("pasaTurno") and tornJugador:
+	if Input.is_action_just_pressed("pasaTurno") and tornJugador:		
 		turnoIA()
 		nTorns+=1
 
@@ -63,7 +64,6 @@ func _process(delta):
 func _on_Player_tornAcabat():
 	nTorns+=1
 	GUI.actualitzarTorns(nTorns)
-	GUI.tornCPU()
 	turnoIA()
 
 # Turno del jugador
