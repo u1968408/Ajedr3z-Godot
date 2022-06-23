@@ -45,8 +45,8 @@ position = Vector2( 112, 0 )
 pos = Vector2( 6, 0 )
 
 [node name="Peo2" parent="Pieces/PiecesIA" instance=ExtResource( 9 )]
-position = Vector2( 64, 8 )
-pos = Vector2( 4, 4 )
+position = Vector2( 56, 12 )
+pos = Vector2( 4, 5 )
 seHaMovido = true
 
 [node name="Alfil" parent="Pieces/PiecesIA" instance=ExtResource( 2 )]

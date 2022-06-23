@@ -9,8 +9,8 @@ var tablero = [
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 2, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 2, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 2, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 1, 0, 0, 0, 0],
 ]
@@ -31,19 +31,22 @@ func debugPeones():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$IA.hacerTurno()
+	if $IA.hacerTurno():
+		print("GAME_OVER")
 	
 
 func _process(delta):
 	# Si el jugador le da al espacio y quiere pasar turno sin disparar
 	if Input.is_action_just_pressed("pasaTurno") and tornJugador:
 		tornJugador = false
-		$IA.hacerTurno()
+		if $IA.hacerTurno():
+			print("GAME_OVER")
 
 # Al disparar
 func _on_Player_tornAcabat():
 	tornJugador = false
-	$IA.hacerTurno()
+	if $IA.hacerTurno():
+		print("GAME_OVER")
 
 
 func _on_IA_tornAcabat():
