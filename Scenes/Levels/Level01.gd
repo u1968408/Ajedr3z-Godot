@@ -2,8 +2,12 @@ extends Node2D
 
 var tornJugador = false #false: blancas, true: negras
 var nTorns = 0
+var nEnemics = 0
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
+
+onready var GUI = $GUI
+onready var PiecesIA = $Pieces/PiecesIA
 var tablero = [
 	[0, 0, 2, 0, 0, 0, 2, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
@@ -31,6 +35,8 @@ func debugPeones():
 
 func quitarPieza(pieza):
 	tablero[pieza.pos.x][pieza.pos.y] = 0
+	nEnemics = PiecesIA.get_child_count()
+	GUI.actualitzarEnemics(nEnemics)
 
 func turnoIA():
 	tornJugador = false
@@ -41,6 +47,8 @@ func turnoIA():
 func _ready():
 	for pieza in $Pieces/PiecesIA.get_children():
 		pieza.connect("pieceDestroyed", self, "quitarPieza")
+	nEnemics = PiecesIA.get_child_count()
+	GUI.actualitzarEnemics(nEnemics)
 	turnoIA()
 
 func _process(delta):
@@ -52,9 +60,12 @@ func _process(delta):
 # Al disparar
 func _on_Player_tornAcabat():
 	nTorns+=1
+	GUI.actualitzarTorns(nTorns)
+	GUI.tornCPU()
 	turnoIA()
 
 # Turno del jugador
 func _on_IA_tornAcabat():
 	tornJugador = true
+	GUI.tornJUG()
 	$Pieces/Player.potJugar()
