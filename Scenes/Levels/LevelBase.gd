@@ -42,9 +42,14 @@ func turnoIA():
 			GUI.perdut()
 			$Pieces/Player.queue_free()
 
+func peonConvertido(nuevaPieza):
+	nuevaPieza.connect("pieceDestroyed", self, "quitarPieza")
+
 func _ready():
 	for pieza in PiecesIA.get_children():
 		pieza.connect("pieceDestroyed", self, "quitarPieza")
+		if pieza.name.begins_with("Peo"):
+			pieza.connect("convertido",self,"peonConvertido")
 	nEnemics = PiecesIA.get_child_count()
 	GUI.actualitzarEnemics(nEnemics)
 	turnoIA()

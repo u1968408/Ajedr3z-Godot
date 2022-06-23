@@ -7,6 +7,8 @@ var Caballo = preload("res://Scenes/Pieces/Caballo.tscn")
 
 var posiblesEvoluciones = [Torre, Alfil, Caballo]
 
+signal convertido
+
 var seHaMovido = false
 var puedeAtacar = false
 		
@@ -32,6 +34,7 @@ func hacerMovimiento(tablero, movimiento):
 			reinaNueva.owner = self.owner
 			get_parent().add_child(reinaNueva)
 			queue_free()
+			emit_signal("convertido", reinaNueva)
 		else:
 			var random = RandomNumberGenerator.new()
 			random.randomize()
@@ -44,6 +47,7 @@ func hacerMovimiento(tablero, movimiento):
 			nuevaPieza.owner = self.owner
 			get_parent().add_child(nuevaPieza)
 			queue_free()
+			emit_signal("convertido", nuevaPieza)
 	else:
 		if pos.y >= 0 and pos.y < tablero.size():
 			if pos.x-1 >= 0 and pos.x-1 < tablero.size() and tablero[pos.y+1][pos.x-1]==1:
