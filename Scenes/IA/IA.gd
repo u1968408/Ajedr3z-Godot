@@ -29,14 +29,14 @@ func hacerTurno():
 	for pieza in movs:
 		var arrayMovs = pieza.movimientos[0]
 		for mov in arrayMovs:
-			if Tablero[mov.x][mov.y]==1:
+			if Tablero[mov.y][mov.x]==1:
 				Piezas.find_node(pieza.name).hacerMovimiento(Tablero,mov)
-				Player.queue_free()
 				return true
 	
 	random.randomize()
 	nPiezas = random.randi_range(1,3)
 	$Timer.start()
+	return false
 
 func _ready():
 	random.randomize()
