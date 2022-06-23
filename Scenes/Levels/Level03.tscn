@@ -59,7 +59,7 @@ position = Vector2( -99, 60 )
 [node name="IA" parent="." instance=ExtResource( 8 )]
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
-visible = false
+position = Vector2( 2, 29 )
 
 [connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
 [connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]
