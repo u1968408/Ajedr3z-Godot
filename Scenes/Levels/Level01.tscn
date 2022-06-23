@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Levels/TileSet/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pieces/Reina.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Levels/Deco/Nube.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/IA/IA.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/Music/airtone_-_mixedSignals_1.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pieces/Peo.tscn" type="PackedScene" id=9]
 
@@ -68,7 +69,10 @@ position = Vector2( -105, -68 )
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]
 
-[node name="OstLvl01" type="AudioStreamPlayer2D" parent="."]
+[node name="Ost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+autoplay = true
 
 [connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
 [connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]
