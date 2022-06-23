@@ -27,12 +27,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Ajedr 3z- Godot"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/Levels/Level01.tscn"
 config/icon="res://icon.png"
-
-[display]
-
-window/size/resizable=false
 
 [importer_defaults]
 

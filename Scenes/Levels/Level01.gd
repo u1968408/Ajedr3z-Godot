@@ -1,7 +1,7 @@
 extends Node2D
 
 var tornJugador = false #false: blancas, true: negras
-
+var nTorns = 0
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
 var tablero = [
@@ -29,34 +29,32 @@ func debugPeones():
 		$Pieces.add_child(nouPeo)
 		tablero[7][i] = 2
 
-# Called when the node enters the scene tree for the first time.
 func quitarPieza(pieza):
-	print ("jeje uno menos", pieza.pos)
-	print(pieza)
-	print(tablero)
 	tablero[pieza.pos.x][pieza.pos.y] = 0
-	print(tablero)
+
+func turnoIA():
+	tornJugador = false
+	if $IA.hacerTurno():
+		print("GAME_OVER")
+		$Pieces/Player.queue_free()
 
 func _ready():
 	for pieza in $Pieces/PiecesIA.get_children():
 		pieza.connect("pieceDestroyed", self, "quitarPieza")
-	if $IA.hacerTurno():
-		print("GAME_OVER")
+	turnoIA()
 
 func _process(delta):
 	# Si el jugador le da al espacio y quiere pasar turno sin disparar
 	if Input.is_action_just_pressed("pasaTurno") and tornJugador:
-		tornJugador = false
-		if $IA.hacerTurno():
-			print("GAME_OVER")
+		turnoIA()
+		nTorns+=1
 
 # Al disparar
 func _on_Player_tornAcabat():
-	tornJugador = false
-	if $IA.hacerTurno():
-		print("GAME_OVER")
+	nTorns+=1
+	turnoIA()
 
-
+# Turno del jugador
 func _on_IA_tornAcabat():
 	tornJugador = true
 	$Pieces/Player.potJugar()

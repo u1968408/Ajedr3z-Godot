@@ -20,6 +20,9 @@ func _unhandled_input(event):
 			elif event.button_index == BUTTON_LEFT and event.pressed:
 				disparar()
 
+func acabarTorn():
+	emit_signal("tornAcabat")
+
 func disparar():
 	var fletxa = fletxaPath.instance()
 	fletxa.global_position = $Bow/bow_sprite.global_position
@@ -27,4 +30,5 @@ func disparar():
 	get_parent().add_child(fletxa)
 	fletxa.velocity = get_global_mouse_position() - fletxa.position
 	tornJugador = false
-	emit_signal("tornAcabat")
+	fletxa.connect("destroyed",self,"acabarTorn")
+
