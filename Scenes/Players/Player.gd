@@ -34,7 +34,7 @@ func acabarTorn():
 
 func disparar():
 	var fletxa = fletxaPath.instance()
-	fletxa.global_position = $Bow/bow_sprite.global_position
+	fletxa.global_position = $Bow/inicio.global_position
 	fletxa.look_at(get_global_mouse_position())
 	get_parent().add_child(fletxa)
 	fletxa.velocity = get_global_mouse_position() - fletxa.position
