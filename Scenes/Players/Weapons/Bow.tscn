@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/GUI/Bow.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Players/Weapons/Bow.gd" type="Script" id=2]
+
+[node name="Bow" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="bow_sprite" type="Sprite" parent="."]
+position = Vector2( -8, 0 )
+rotation = 0.785397
+texture = ExtResource( 1 )
+offset = Vector2( 10.4281, -10.4035 )
+hframes = 2
