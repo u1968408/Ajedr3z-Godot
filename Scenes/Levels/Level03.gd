@@ -1,6 +1,6 @@
-extends "res://Scenes/Levels/Level01.gd"
+extends "res://Scenes/Levels/LevelBase.gd"
 
-func _ready():
+func _init():
 	tablero = [
 		[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
 		[-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1],
