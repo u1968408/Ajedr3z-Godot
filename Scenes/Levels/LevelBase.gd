@@ -6,9 +6,11 @@ var nTorns = 0
 var nEnemics = 0
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
+var pitch = 0
 
 onready var GUI = $GUI
 onready var PiecesIA = $Pieces/PiecesIA
+onready var ost = $Ost
 export var tablero = [] 
 
 # Crea una hilera de peones al final del tablero
@@ -58,7 +60,10 @@ func _process(delta):
 	# Si el jugador le da al espacio y quiere pasar turno sin disparar
 	if !guanyat and Input.is_action_just_pressed("pasaTurno") and tornJugador:
 		_on_Player_tornAcabat()
-		
+	ost.pitch_scale = generarPitch()
+
+func generarPitch():
+	return 1
 
 # Acaba el turno del jugador
 func _on_Player_tornAcabat():

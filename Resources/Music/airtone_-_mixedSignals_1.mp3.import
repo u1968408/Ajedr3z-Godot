@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/airtone_-_mixedSignals_1.mp3-2d04842524691ebeb9faceb93c41a49c.mp3str"
+
+[deps]
+
+source_file="res://Resources/Music/airtone_-_mixedSignals_1.mp3"
+dest_files=[ "res://.import/airtone_-_mixedSignals_1.mp3-2d04842524691ebeb9faceb93c41a49c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

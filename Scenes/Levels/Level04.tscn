@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level04.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Levels/TileSet/TileMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/IA/IA.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Deco/Nube.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Pieces/Torre.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/Music/FireEmblemFates-ADarkFallChachi.mp3" type="AudioStream" id=11]
 
 [node name="Level04" type="Node2D"]
 script = ExtResource( 1 )
@@ -51,6 +54,11 @@ zoom = Vector2( 0.32, 0.32 )
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 position = Vector2( 43, 5 )
+
+[node name="Ost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -15.0
+autoplay = true
 
 [connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
 [connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/speck_-_Wicked_Dummys.mp3-4f6c0923cd4c41749e7e5ce8809ebe16.mp3str"
+
+[deps]
+
+source_file="res://Resources/Music/speck_-_Wicked_Dummys.mp3"
+dest_files=[ "res://.import/speck_-_Wicked_Dummys.mp3-4f6c0923cd4c41749e7e5ce8809ebe16.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
