@@ -34,7 +34,8 @@ func debugPeones():
 		tablero[7][i] = 2
 
 func quitarPieza(pieza):
-	tablero[pieza.pos.x][pieza.pos.y] = 0
+	tablero[pieza.pos.y][pieza.pos.x] = 0
+	pieza.queue_free()
 	$IA.Piezas = get_node("../Pieces/PiecesIA")
 	nEnemics = PiecesIA.get_child_count()
 	GUI.actualitzarEnemics(nEnemics)

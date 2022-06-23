@@ -25,7 +25,6 @@ func todosLosMovimientosPosibles():
 # Hace un movimiento y devuelve el movimiento hecho
 func hacerTurno():
 	movs = todosLosMovimientosPosibles()
-	print(movs)
 	# Miramos si en alguno de los movimientos podemos pillar al jugador
 	for pieza in movs:
 		var arrayMovs = pieza.movimientos[0]
@@ -36,7 +35,6 @@ func hacerTurno():
 				return true
 	
 	nPiezas = random.randi_range(1,2)
-	print("SE VAN A MOVER ",nPiezas," PIEZAS")
 	$Timer.start()
 	return false
 
@@ -49,8 +47,8 @@ func _ready():
 func _on_Timer_timeout():
 	var piezaIndex = random.randi_range(0,movs.size()-1)
 	var pieza = movs[piezaIndex]
-	print(pieza.name,": ",pieza.movimientos[0])
 	var rand_index = random.randi() % pieza.movimientos[0].size()
+	print(Piezas.get_children())
 	Piezas.find_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
 	movs.remove(piezaIndex)
 	nMovidas += 1

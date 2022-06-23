@@ -15,7 +15,6 @@ func _physics_process(delta):
 # Devuelve un array de los posibles movimientos que puede hacer la pieza
 func posiblesMovimientos(tablero):
 	var res = []
-	print("Soy ",name," tengo ",casillasDisponibles)
 	for casilla in casillasDisponibles:
 		var casillaResultante = Vector2(pos.x+casilla.x,pos.y+casilla.y)
 		if casillaResultante.y >= 0 and casillaResultante.y < tablero.size() and casillaResultante.x >= 0 and casillaResultante.x < tablero[casillaResultante.y].size() and (tablero[casillaResultante.y][casillaResultante.x]==0 or tablero[casillaResultante.y][casillaResultante.x]==1):
@@ -98,7 +97,7 @@ func _on_Pieza_mouse_exited():
 
 func _on_Pieza_body_entered(body):
 	if body is Fletxa and blanca == 2:
-		body.emit_signal("destroyed")
-		body.queue_free()
 		emit_signal("pieceDestroyed", self)
 		queue_free()
+		body.emit_signal("destroyed")
+		body.queue_free()

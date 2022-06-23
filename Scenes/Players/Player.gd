@@ -3,20 +3,23 @@ class_name Player
 
 var fletxaPath = preload("res://Scenes/Players/Weapons/Fletxa.tscn")
 var tornJugador = false
+var movido = false
 
 signal tornAcabat
 
 func potJugar():
 	tornJugador = true
+	movido = false
 
 func _unhandled_input(event):
 	if tornJugador:
 		if event is InputEventMouseButton:
-			if event.button_index == BUTTON_RIGHT and event.pressed:
+			if !movido and event.button_index == BUTTON_RIGHT and event.pressed:
 				var mouse_pos = get_global_mouse_position()
 				var tile = owner.get_node('TileMap').world_to_map(mouse_pos)
 				tile.y += 8
 				hacerMovimiento(get_parent().get_parent().tablero,tile)
+				movido = true
 			elif event.button_index == BUTTON_LEFT and event.pressed:
 				disparar()
 
