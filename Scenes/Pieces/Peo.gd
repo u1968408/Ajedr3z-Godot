@@ -24,7 +24,7 @@ func hacerMovimiento(tablero, movimiento):
 		seHaMovido = true
 	print(tablero)
 	print("Tamaño del tablero: ",tablero.size()-1, "Posicion: ",pos.y)
-	if pos.y == tablero.size()-1:
+	if  pos.y==tablero.size() or tablero[pos.y+1][pos.x] == -1:
 		if get_parent().find_node("Reina") == null:
 			var reinaNueva = Reina.instance()
 			reinaNueva.tablero = owner.tablero
