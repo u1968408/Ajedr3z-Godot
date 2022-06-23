@@ -14,5 +14,6 @@ hframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_Pieza_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_Pieza_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Pieza_mouse_exited"]

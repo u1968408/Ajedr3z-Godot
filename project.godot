@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Fletxa",
+"language": "GDScript",
+"path": "res://Scenes/Players/Weapons/Fletxa.gd"
+}, {
+"base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scenes/Players/Player.gd"
+} ]
+_global_script_class_icons={
+"Fletxa": "",
+"Player": ""
+}
+
 [application]
 
 config/name="Ajedr 3z- Godot"
