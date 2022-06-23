@@ -101,6 +101,7 @@ func _on_Pieza_mouse_exited():
 func _on_Pieza_body_entered(body):
 	if body is Fletxa and blanca == 2:
 		emit_signal("pieceDestroyed", self)
+		
 		queue_free()
 		body.emit_signal("destroyed")
 		body.queue_free()

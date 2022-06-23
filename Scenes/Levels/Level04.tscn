@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level04.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Sound/EnemyHit.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Levels/TileSet/TileMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/IA/IA.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Levels/Deco/Nube.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Pieces/Torre.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/Music/FireEmblemFates-ADarkFallChachi.mp3" type="AudioStream" id=11]
 
 [node name="Level04" type="Node2D"]
@@ -18,7 +17,7 @@ margin_top = -185.0
 margin_right = 435.0
 margin_bottom = 255.0
 mouse_filter = 2
-color = Color( 0.533333, 0.152941, 0.152941, 1 )
+color = Color( 0.320313, 0.0162659, 0.0162659, 1 )
 
 [node name="Water" parent="." instance=ExtResource( 7 )]
 scale = Vector2( 1, 1 )
@@ -56,9 +55,14 @@ zoom = Vector2( 0.32, 0.32 )
 position = Vector2( 43, 5 )
 
 [node name="Ost" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 108, 5 )
 stream = ExtResource( 11 )
 volume_db = -15.0
 autoplay = true
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 108, 5 )
+stream = ExtResource( 2 )
 
 [connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
 [connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]

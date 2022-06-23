@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mixkit-game-level-completed-2059.wav-f3bca4e297e43197c8c9744c4f26e803.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/mixkit-game-level-completed-2059.wav"
+dest_files=[ "res://.import/mixkit-game-level-completed-2059.wav-f3bca4e297e43197c8c9744c4f26e803.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

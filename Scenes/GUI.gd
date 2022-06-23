@@ -25,6 +25,7 @@ func tornCPU():
 	JUG.visible = false
 
 func guanyat():
+	$GUANYAT/Victory.play()
 	CPU.visible = false
 	JUG.visible = false
 	GUANYA.visible = true

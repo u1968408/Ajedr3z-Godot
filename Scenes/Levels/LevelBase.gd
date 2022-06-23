@@ -28,6 +28,7 @@ func debugPeones():
 		tablero[7][i] = 2
 
 func quitarPieza(pieza):
+	$Hit.play()
 	tablero[pieza.pos.y][pieza.pos.x] = 0
 	pieza.queue_free()
 	nEnemics -= 1

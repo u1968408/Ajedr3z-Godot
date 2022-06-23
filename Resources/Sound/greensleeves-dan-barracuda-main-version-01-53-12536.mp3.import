@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/greensleeves-dan-barracuda-main-version-01-53-12536.mp3-c094c7e262884c47c3ebff12fb703a99.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sound/greensleeves-dan-barracuda-main-version-01-53-12536.mp3"
+dest_files=[ "res://.import/greensleeves-dan-barracuda-main-version-01-53-12536.mp3-c094c7e262884c47c3ebff12fb703a99.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
