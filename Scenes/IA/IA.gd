@@ -1,7 +1,6 @@
 extends Node
 
 var Piezas
-var Player
 var Tablero
 
 var random = RandomNumberGenerator.new()
@@ -26,6 +25,7 @@ func todosLosMovimientosPosibles():
 # Hace un movimiento y devuelve el movimiento hecho
 func hacerTurno():
 	movs = todosLosMovimientosPosibles()
+	print(movs)
 	# Miramos si en alguno de los movimientos podemos pillar al jugador
 	for pieza in movs:
 		var arrayMovs = pieza.movimientos[0]
@@ -35,7 +35,7 @@ func hacerTurno():
 				print("He ganado con la pieza ",pieza.name," y el mov ",mov)
 				return true
 	
-	nPiezas = random.randi_range(1,3)
+	nPiezas = random.randi_range(1,2)
 	print("SE VAN A MOVER ",nPiezas," PIEZAS")
 	$Timer.start()
 	return false
@@ -43,7 +43,6 @@ func hacerTurno():
 func _ready():
 	random.randomize()
 	Piezas = get_node("../Pieces/PiecesIA")
-	Player = get_node("../Pieces/Player")
 	Tablero = owner.tablero
 
 
@@ -57,6 +56,7 @@ func _on_Timer_timeout():
 	nMovidas += 1
 	if nMovidas == nPiezas:
 		emit_signal("tornAcabat")
-		nPiezas = 0
+		$Timer.stop()
+		nMovidas = 0
 	else:
 		$Timer.start()

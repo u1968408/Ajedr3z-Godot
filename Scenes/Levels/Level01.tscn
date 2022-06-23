@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Levels/TileSet/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Pieces/Alfil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Levels/Level01.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Levels/Deco/Nube.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/IA/IA.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Pieces/Caballo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pieces/Peo.tscn" type="PackedScene" id=9]
 
@@ -37,22 +35,14 @@ tile_data = PoolIntArray( -983041, 49, 0, -917507, 50, 0, -917504, 51, 0, -72090
 
 [node name="PiecesIA" type="YSort" parent="Pieces"]
 
-[node name="Caballo" parent="Pieces/PiecesIA" instance=ExtResource( 7 )]
-position = Vector2( 64, -8 )
-pos = Vector2( 2, 2 )
-
 [node name="Peo" parent="Pieces/PiecesIA" instance=ExtResource( 9 )]
 position = Vector2( 112, 0 )
 pos = Vector2( 6, 0 )
 
 [node name="Peo2" parent="Pieces/PiecesIA" instance=ExtResource( 9 )]
 position = Vector2( 56, 12 )
+casillasDisponibles = [ Vector2( 0, 1 ) ]
 pos = Vector2( 4, 5 )
-seHaMovido = true
-
-[node name="Alfil" parent="Pieces/PiecesIA" instance=ExtResource( 2 )]
-position = Vector2( 80, -16 )
-pos = Vector2( 2, 0 )
 
 [node name="Player" parent="Pieces" instance=ExtResource( 4 )]
 position = Vector2( 32, 17 )

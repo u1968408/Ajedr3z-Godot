@@ -5,9 +5,9 @@ var nTorns = 0
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
 var tablero = [
-	[0, 0, 2, 0, 0, 0, 2, 0],
+	[0, 0, 0, 0, 0, 0, 2, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 2, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 2, 0, 0, 0],
@@ -31,6 +31,7 @@ func debugPeones():
 
 func quitarPieza(pieza):
 	tablero[pieza.pos.x][pieza.pos.y] = 0
+	$IA.Piezas = get_node("../Pieces/PiecesIA")
 
 func turnoIA():
 	tornJugador = false

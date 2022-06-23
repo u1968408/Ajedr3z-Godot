@@ -1,18 +1,17 @@
 extends "res://Scenes/Pieces/Base.gd"
 
-export var seHaMovido = false
+var seHaMovido = false
 var Reina = preload("res://Scenes/Pieces/Reina.tscn")
 var Torre = preload("res://Scenes/Pieces/Torre.tscn")
 var Alfil = preload("res://Scenes/Pieces/Alfil.tscn")
 var Caballo = preload("res://Scenes/Pieces/Caballo.tscn")
 
 var posiblesEvoluciones = [Torre, Alfil, Caballo]
-
-func _ready():
-	if seHaMovido:
-		casillasDisponibles.pop_back()
 		
 func hacerMovimiento(tablero, movimiento):
+	if casillasDisponibles[0]!=Vector2(0,1):
+		if tablero[movimiento.y][movimiento.x]!=1:
+			casillasDisponibles[0]=Vector2(0,1)
 	.hacerMovimiento(tablero,movimiento)
 	if !seHaMovido:
 		casillasDisponibles.pop_back()
@@ -42,9 +41,11 @@ func hacerMovimiento(tablero, movimiento):
 			if pos.x-1 >= 0 and pos.x-1 < tablero.size() and tablero[pos.y+1][pos.x-1]==1:
 				casillasDisponibles.clear()
 				casillasDisponibles.append(Vector2(-1,1))
+				print("izq")
 			elif pos.x+1 >= 0 and pos.x+1 < tablero.size() and tablero[pos.y+1][pos.x+1]==1:
 				casillasDisponibles.clear()
 				casillasDisponibles.append(Vector2(1,1))
+				print("der")
 			else:
 				casillasDisponibles.clear()
 				casillasDisponibles.append(Vector2(0,1))
