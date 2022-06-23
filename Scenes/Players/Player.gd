@@ -1,4 +1,5 @@
 extends "res://Scenes/Pieces/Base.gd"
+class_name Player
 
 var fletxaPath = preload("res://Scenes/Players/Weapons/Fletxa.tscn")
 var tornJugador = false

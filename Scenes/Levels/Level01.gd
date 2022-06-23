@@ -30,10 +30,18 @@ func debugPeones():
 		tablero[7][i] = 2
 
 # Called when the node enters the scene tree for the first time.
+func quitarPieza(pieza):
+	print ("jeje uno menos", pieza.pos)
+	print(pieza)
+	print(tablero)
+	tablero[pieza.pos.x][pieza.pos.y] = 0
+	print(tablero)
+
 func _ready():
+	for pieza in $Pieces/PiecesIA.get_children():
+		pieza.connect("pieceDestroyed", self, "quitarPieza")
 	if $IA.hacerTurno():
 		print("GAME_OVER")
-	
 
 func _process(delta):
 	# Si el jugador le da al espacio y quiere pasar turno sin disparar

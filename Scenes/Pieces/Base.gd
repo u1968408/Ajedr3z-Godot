@@ -4,6 +4,8 @@ export var casillasDisponibles = [] # Vector2(1,1)...
 export var blanca = -1
 export var pos = Vector2(-1,-1)
 
+signal pieceDestroyed
+
 func _ready():
 	assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
 
@@ -90,3 +92,10 @@ func _on_Pieza_mouse_entered():
 
 func _on_Pieza_mouse_exited():
 	$Sprite.modulate.a = 1
+
+
+func _on_Pieza_body_entered(body):
+	if body is Fletxa and blanca == 2:
+		body.queue_free()
+		emit_signal("pieceDestroyed", self)
+		queue_free()

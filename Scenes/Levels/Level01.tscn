@@ -71,5 +71,4 @@ position = Vector2( -105, -68 )
 
 [node name="IA" parent="." instance=ExtResource( 6 )]
 
-[connection signal="tornAcabat" from="Pieces/Player" to="." method="_on_Player_tornAcabat"]
 [connection signal="tornAcabat" from="IA" to="." method="_on_IA_tornAcabat"]
