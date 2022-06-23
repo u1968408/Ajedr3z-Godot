@@ -52,8 +52,6 @@ seHaMovido = true
 
 [node name="Alfil" parent="Pieces/PiecesIA" instance=ExtResource( 2 )]
 position = Vector2( 80, -16 )
-casillasDisponibles = [  ]
-blanca = -1
 pos = Vector2( 2, 0 )
 
 [node name="Player" parent="Pieces" instance=ExtResource( 4 )]

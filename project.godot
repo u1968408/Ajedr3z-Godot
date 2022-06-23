@@ -30,6 +30,10 @@ config/name="Ajedr 3z- Godot"
 run/main_scene="res://Scenes/Levels/Level01.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [importer_defaults]
 
 texture={
