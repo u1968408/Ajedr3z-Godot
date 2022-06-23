@@ -1,5 +1,6 @@
 extends Node2D
 
+var tornJugador = false #false: blancas, true: negras
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -7,7 +8,7 @@ extends Node2D
 var Peo = preload("res://Scenes/Pieces/Peo.tscn")
 var posInicial = Vector2(8,4)
 var tablero = [
-	[0, 0, 0, 0, 2, 0, 0, 0],
+	[0, 0, 2, 0, 0, 0, 2, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 2, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0],
@@ -33,9 +34,11 @@ func debugPeones():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$IA.hacerTurno()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("pasaTurno") and tornJugador:
+		tornJugador = false
+		$IA.hacerTurno()

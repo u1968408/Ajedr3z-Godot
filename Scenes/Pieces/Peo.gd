@@ -24,7 +24,7 @@ func hacerMovimiento(tablero, movimiento):
 		else:
 			var random = RandomNumberGenerator.new()
 			random.randomize()
-			var posPieza = rand_range(0,3)
+			var posPieza = random.randi_range(0,3)
 			var nuevaPieza = posiblesEvoluciones[posPieza].instance()
 			if posPieza != 2:
 				nuevaPieza.tablero = owner.tablero
@@ -32,3 +32,8 @@ func hacerMovimiento(tablero, movimiento):
 			nuevaPieza.position = position
 			get_parent().add_child(nuevaPieza)
 			queue_free()
+	else:
+		if tablero[pos.x-1][pos.y+1]==1:
+			casillasDisponibles.append(Vector2(-1,1))
+		elif tablero[pos.x-1][pos.y-1]==1:
+			casillasDisponibles.append(Vector2(-1,-1))

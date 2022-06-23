@@ -4,6 +4,9 @@ export var casillasDisponibles = [] # Vector2(1,1)...
 export var blanca = -1
 export var pos = Vector2(-1,-1)
 
+func _ready():
+	assert( pos.x>=0 and pos.y>=0, "ERROR: Bro que posicion es esta?????")
+
 func _physics_process(delta):
 	var space_state = get_world_2d().direct_space_state
 
