@@ -40,9 +40,8 @@ position = Vector2( 112, 0 )
 pos = Vector2( 6, 0 )
 
 [node name="Peo2" parent="Pieces/PiecesIA" instance=ExtResource( 9 )]
-position = Vector2( 56, 12 )
-casillasDisponibles = [ Vector2( 0, 1 ) ]
-pos = Vector2( 4, 5 )
+position = Vector2( 96, -8 )
+pos = Vector2( 4, 0 )
 
 [node name="Player" parent="Pieces" instance=ExtResource( 4 )]
 position = Vector2( 32, 17 )

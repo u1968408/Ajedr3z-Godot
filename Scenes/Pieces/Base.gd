@@ -17,8 +17,10 @@ func posiblesMovimientos(tablero):
 	var res = []
 	for casilla in casillasDisponibles:
 		var casillaResultante = Vector2(pos.x+casilla.x,pos.y+casilla.y)
+		#print(name," voy a mirar si es valido ",casillaResultante," siendo mis posibilidades ",casillasDisponibles," y mi pos ",pos)
 		if casillaResultante.y >= 0 and casillaResultante.y < tablero.size() and casillaResultante.x >= 0 and casillaResultante.x < tablero[casillaResultante.y].size() and (tablero[casillaResultante.y][casillaResultante.x]==0 or tablero[casillaResultante.y][casillaResultante.x]==1):
 			res.append(casillaResultante)
+			
 	return res
 	
 # Devuelve true si el movimiento se puede hacer
@@ -69,10 +71,8 @@ func calculaPixels(vectorMov):
 # Movimiento es la casilla a la que nos queremos mover
 func hacerMovimiento(tablero, movimiento):
 	if comprobarMovimiento(tablero,movimiento):
-		
 		tablero[pos.y][pos.x] = 0
 		tablero[movimiento.y][movimiento.x] = blanca
-		#owner.tablero = tablero
 		
 		#Actually mover la pieza
 		var vectorMov = Vector2((movimiento.x-pos.x),(movimiento.y-pos.y))
@@ -83,9 +83,10 @@ func hacerMovimiento(tablero, movimiento):
 		
 		position.x += vectorResultante.x
 		position.y += vectorResultante.y
-		
+		return true
 	else:
 		print("no se puede hacer este movimiento: ",movimiento,", lista de movs: ",posiblesMovimientos(tablero))
+		return false
 
 
 func _on_Pieza_mouse_entered():

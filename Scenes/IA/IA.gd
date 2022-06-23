@@ -16,10 +16,15 @@ func todosLosMovimientosPosibles():
 	for pieza in get_parent().find_node("PiecesIA").get_children():
 		var piezaMovimientos = {
 			'name': pieza.name,
-			'movimientos': []
+			'movimientos': [],
+			'atacar': true
 		}
-		piezaMovimientos['movimientos'].append(pieza.posiblesMovimientos(Tablero))
-		res.append(piezaMovimientos)
+		var movsPosibles = pieza.posiblesMovimientos(Tablero)
+		if !movsPosibles.empty():
+			piezaMovimientos['movimientos']=movsPosibles
+			if pieza.name.begins_with("Peo") and !pieza.puedeAtacar:
+				piezaMovimientos.atacar = false
+			res.append(piezaMovimientos)
 	return res
 
 # Hace un movimiento y devuelve el movimiento hecho
@@ -27,9 +32,9 @@ func hacerTurno():
 	movs = todosLosMovimientosPosibles()
 	# Miramos si en alguno de los movimientos podemos pillar al jugador
 	for pieza in movs:
-		var arrayMovs = pieza.movimientos[0]
+		var arrayMovs = pieza.movimientos
 		for mov in arrayMovs:
-			if Tablero[mov.y][mov.x]==1:
+			if Tablero[mov.y][mov.x]==1 and pieza.atacar:
 				Piezas.get_node(pieza.name).hacerMovimiento(Tablero,mov)
 				print("He ganado con la pieza ",pieza.name," y el mov ",mov)
 				return true
@@ -47,13 +52,12 @@ func _ready():
 
 
 func _on_Timer_timeout():
+	Piezas = get_parent().find_node("PiecesIA")
 	if movs.size() != 0:
 		var piezaIndex = random.randi_range(0,movs.size()-1)
 		var pieza = movs[piezaIndex]
-		var rand_index = random.randi() % pieza.movimientos[0].size()
-		Piezas = get_parent().find_node("PiecesIA")
-		print(Piezas.get_children())
-		Piezas.get_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[0][rand_index])
+		var rand_index = random.randi() % pieza.movimientos.size()
+		Piezas.get_node(pieza.name).hacerMovimiento(Tablero,pieza.movimientos[rand_index])
 		movs.remove(piezaIndex)
 		nMovidas += 1
 		if nMovidas == nPiezas:

@@ -18,8 +18,7 @@ func _unhandled_input(event):
 				var mouse_pos = get_global_mouse_position()
 				var tile = owner.get_node('TileMap').world_to_map(mouse_pos)
 				tile.y += 8
-				hacerMovimiento(get_parent().get_parent().tablero,tile)
-				movido = true
+				movido = hacerMovimiento(get_parent().get_parent().tablero,tile)
 			elif event.button_index == BUTTON_LEFT and event.pressed:
 				disparar()
 
