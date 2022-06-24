@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level02.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Pieces/Caballo.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Scenes/Levels/Deco/Nube.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Pieces/Reina.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/Music/speck_-_Wicked_Dummys.mp3" type="AudioStream" id=11]
-[ext_resource path="res://Scenes/Pieces/Base.gd" type="Script" id=12]
 [ext_resource path="res://Resources/Sound/EnemyHit.wav" type="AudioStream" id=13]
 
 [node name="Level02" type="Node2D"]
@@ -50,7 +49,6 @@ pos = Vector2( 9, 0 )
 
 [node name="Caballo" parent="Pieces/PiecesIA" instance=ExtResource( 2 )]
 position = Vector2( 94, -1 )
-script = ExtResource( 12 )
 pos = Vector2( 5, 1 )
 
 [node name="Peo" parent="Pieces/PiecesIA" instance=ExtResource( 6 )]
@@ -58,8 +56,8 @@ position = Vector2( 22, 3 )
 pos = Vector2( 1, 6 )
 
 [node name="Peo2" parent="Pieces/PiecesIA" instance=ExtResource( 6 )]
-position = Vector2( 142, 47 )
-pos = Vector2( 14, 4 )
+position = Vector2( 134, 43 )
+pos = Vector2( 13, 4 )
 
 [node name="Peo3" parent="Pieces/PiecesIA" instance=ExtResource( 6 )]
 position = Vector2( 94, -9 )
@@ -67,11 +65,7 @@ pos = Vector2( 4, 0 )
 
 [node name="Peo4" parent="Pieces/PiecesIA" instance=ExtResource( 6 )]
 position = Vector2( 110, 7 )
-pos = Vector2( 7, 1 )
-
-[node name="Peo5" parent="Pieces/PiecesIA" instance=ExtResource( 6 )]
-position = Vector2( 86, 27 )
-pos = Vector2( 6, 5 )
+pos = Vector2( 9, 3 )
 
 [node name="Torre" parent="Pieces/PiecesIA" instance=ExtResource( 4 )]
 position = Vector2( 46, -9 )
