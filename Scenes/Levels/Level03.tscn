@@ -75,7 +75,6 @@ tile_data = PoolIntArray(  )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 67, 29 )
-current = true
 zoom = Vector2( 0.32, 0.32 )
 
 [node name="Sprite" parent="." instance=ExtResource( 9 )]

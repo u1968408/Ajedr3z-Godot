@@ -38,7 +38,7 @@ func hacerMovimiento(tablero, movimiento):
 		else:
 			var random = RandomNumberGenerator.new()
 			random.randomize()
-			var posPieza = random.randi_range(0,3)
+			var posPieza = random.randi_range(0,2)
 			var nuevaPieza = posiblesEvoluciones[posPieza].instance()
 			if posPieza != 2:
 				nuevaPieza.tablero = owner.tablero

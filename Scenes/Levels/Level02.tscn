@@ -86,17 +86,17 @@ position = Vector2( -58, 27 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 26, 32 )
+position = Vector2( 27, 32 )
 current = true
 zoom = Vector2( 0.32, 0.32 )
 
 [node name="Sprite" parent="." instance=ExtResource( 9 )]
-position = Vector2( -99, 60 )
+position = Vector2( -96, 16 )
 
 [node name="IA" parent="." instance=ExtResource( 8 )]
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
-position = Vector2( -40, 32 )
+position = Vector2( -39, 32 )
 
 [node name="Ost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

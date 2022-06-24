@@ -8,7 +8,6 @@ onready var PERD = $PERDUT
 func _ready():
 	CPU.visible = false
 	JUG.visible = false
-	print(get_tree().current_scene.name)
 
 func actualitzarTorns(nTorns):
 	$GUI_General/Torns.text = str(nTorns)
@@ -28,9 +27,14 @@ func guanyat():
 	$GUANYAT/Victory.play()
 	CPU.visible = false
 	JUG.visible = false
-	GUANYA.visible = true
+	if get_tree().current_scene.name != "Level04":
+		GUANYA.visible = true
+	else:
+		$PERDUT/Guanyat.text = "El rei Shirogane I es mort"
+		PERD.visible = true
 	
 func perdut():
+	$PERDUT/Guanyat.text = "DERROTA"
 	CPU.visible = false
 	JUG.visible = false
 	PERD.visible = true
